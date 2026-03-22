@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Marquee from '../components/Marquee';
 import Services from '../sections/Services';
 import Portfolio from '../sections/Portfolio';
 import Results from '../sections/Results';
@@ -77,7 +78,9 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="relative z-20 bg-white rounded-t-[3rem] overflow-hidden shadow-[0_-20px_50px_rgba(0,0,0,0.02)]">
+      <Marquee />
+
+      <div className="relative z-20 bg-white shadow-[0_-20px_50px_rgba(0,0,0,0.02)]">
         <Services />
         <Results />
         <Portfolio />

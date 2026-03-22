@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 export default function Portfolio() {
   const projects = [
     { tag: 'Law Firm Website', border: 'border-black/5', span: 'md:col-span-2', height: 'h-[500px]' },
@@ -7,15 +9,28 @@ export default function Portfolio() {
   ];
 
   return (
-    <section id="portfolio" className="py-32 bg-[#FAFAFA] border-t border-black/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className="py-32 bg-[#FAFAFA] border-t border-black/5 overflow-hidden">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.98 }} 
+        whileInView={{ opacity: 1, scale: 1 }} 
+        viewport={{ once: true, margin: "-100px" }} 
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="mb-20 max-w-2xl">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-neutral-900">Selected Works</h2>
           <p className="mt-6 text-xl text-neutral-500 font-medium leading-relaxed">A curated collection of projects where design meets precise engineering.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((item, i) => (
-            <div key={i} className={`group relative ${item.span} ${item.height} rounded-[2.5rem] overflow-hidden cursor-pointer bg-white border ${item.border} flex items-center justify-center shadow-sm hover:shadow-premium-hover transition-all duration-700`}>
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className={`group relative ${item.span} ${item.height} rounded-[2.5rem] overflow-hidden cursor-pointer bg-white border ${item.border} flex items-center justify-center shadow-sm hover:shadow-premium-hover transition-all duration-700`}
+            >
               <div className="absolute inset-0 bg-neutral-900/0 group-hover:bg-neutral-900/10 transition-colors duration-500 z-10" />
               <div className="w-full h-full bg-neutral-50 group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-center">
                 <span className="text-neutral-300 font-medium text-lg">✨ Project Snapshot</span>
@@ -31,10 +46,10 @@ export default function Portfolio() {
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

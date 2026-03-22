@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { loadRazorpayScript } from '../lib/razorpay';
 
 export default function Pricing() {
@@ -18,16 +19,22 @@ export default function Pricing() {
   };
 
   return (
-    <section id="pricing" className="py-32 bg-white relative">
+    <section id="pricing" className="py-32 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-24 max-w-3xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-24 max-w-3xl mx-auto"
+        >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-neutral-900">Simple, transparent pricing.</h2>
           <p className="mt-6 text-xl text-neutral-500 font-medium leading-relaxed">No hidden fees. We believe in delivering exceptional value with complete transparency.</p>
-        </div>
+        </motion.div>
         
         <div className="flex flex-col md:flex-row justify-center items-center gap-8 max-w-5xl mx-auto">
           {/* Base Plan */}
-          <div className="flex-1 w-full bg-[#FAFAFA] p-12 rounded-[2.5rem] border border-black/5 hover:border-black/10 transition-colors duration-500">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="flex-1 w-full bg-[#FAFAFA] p-12 rounded-[2.5rem] border border-black/5 hover:border-black/10 transition-colors duration-500"
+          >
             <h3 className="text-2xl font-bold mb-2 tracking-tight">Landing Page</h3>
             <p className="text-neutral-500 mb-8 font-medium">Perfect for new businesses.</p>
             <div className="mb-10 flex items-baseline gap-2">
@@ -44,10 +51,13 @@ export default function Pricing() {
             <button onClick={() => handlePayment('Landing Page', 15000)} className="w-full py-4 bg-white border border-black/10 text-neutral-900 font-bold rounded-2xl hover:bg-neutral-50 hover:shadow-sm transition-all duration-300">
               Get Started
             </button>
-          </div>
+          </motion.div>
 
           {/* Premium Plan */}
-          <div className="flex-1 w-full bg-[#0A0A0B] text-white p-12 rounded-[3rem] border border-white/10 relative shadow-[0_30px_60px_rgba(0,0,0,0.15)] group transform md:-translate-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="flex-1 w-full bg-[#0A0A0B] text-white p-12 rounded-[3rem] border border-white/10 relative shadow-[0_30px_60px_rgba(0,0,0,0.15)] group transform md:-translate-y-6"
+          >
             <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[3rem] pointer-events-none"></div>
             <div className="absolute top-0 right-10 transform -translate-y-1/2">
               <span className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-xs font-bold px-5 py-2 rounded-full uppercase tracking-widest shadow-lg">Popular</span>
@@ -65,10 +75,10 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <button onClick={() => handlePayment('Standard Growth', 35000)} className="w-full py-4 bg-white text-black font-bold rounded-2xl hover:bg-neutral-200 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+            <button onClick={() => handlePayment('Standard Growth', 35000)} className="w-full py-4 bg-white text-black font-bold rounded-2xl hover:bg-neutral-200 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] relative z-10">
               Get Started
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

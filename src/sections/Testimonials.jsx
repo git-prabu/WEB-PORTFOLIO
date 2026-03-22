@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 export default function Testimonials() {
   const testimonials = [
     { quote: "Prabu transformed our online presence. Our traffic doubled in 3 months.", name: "Sarah L.", role: "CEO, TechStart" },
@@ -6,15 +8,22 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="py-32 bg-white overflow-hidden">
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-neutral-900">What Clients Say.</h2>
           <p className="mt-6 text-xl text-neutral-500 font-medium">Don't just take our word for it.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((item, i) => (
-            <div key={i} className="bg-[#FAFAFA] p-10 rounded-[2.5rem] border border-black/5 hover:shadow-premium-hover transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between h-full">
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.8, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#FAFAFA] p-10 rounded-[2.5rem] border border-black/5 hover:shadow-premium-hover transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between h-full"
+            >
               <div>
                 <div className="flex space-x-1 mb-8 text-emerald-400">
                   {[...Array(5)].map((_, j) => (
@@ -30,10 +39,10 @@ export default function Testimonials() {
                   <p className="text-sm text-neutral-500 font-medium">{item.role}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

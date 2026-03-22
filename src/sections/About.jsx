@@ -1,11 +1,16 @@
+import { motion } from 'framer-motion';
+
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-white border-t border-neutral-100">
+    <section id="about" className="py-32 bg-white border-t border-neutral-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center gap-16">
-          <div className="flex-1 space-y-8">
-            <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl">About Us.</h2>
-            <p className="text-xl text-neutral-500 leading-relaxed text-balance">
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="flex-1 space-y-8"
+          >
+            <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-neutral-900">About Us.</h2>
+            <p className="text-xl text-neutral-500 leading-relaxed text-balance font-medium">
               We are a specialized development studio focused on creating web experiences that feel native, responsive, and incredibly fast. 
               Led by Prabu, our team bridges the gap between premium design and scalable engineering architecture.
             </p>
@@ -16,16 +21,18 @@ export default function About() {
                 </span>
               ))}
             </div>
-          </div>
-          <div className="flex-1 w-full relative">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="flex-1 w-full relative"
+          >
             <div className="aspect-square max-w-sm mx-auto bg-neutral-50 rounded-[3rem] overflow-hidden border border-neutral-200 relative group shadow-sm">
               <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition duration-500 z-10" />
-              {/* Optional custom picture placeholder */}
               <div className="w-full h-full filter grayscale group-hover:grayscale-0 transition duration-500 flex items-center justify-center text-neutral-300 text-9xl">
                 👨‍💻
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
