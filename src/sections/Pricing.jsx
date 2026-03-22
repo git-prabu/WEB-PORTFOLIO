@@ -3,71 +3,69 @@ import { loadRazorpayScript } from '../lib/razorpay';
 export default function Pricing() {
   const handlePayment = async (planName, amount) => {
     const res = await loadRazorpayScript();
-    if (!res) {
-      alert('Razorpay SDK failed to load. Are you online?');
-      return;
-    }
-
+    if (!res) { alert('Razorpay SDK failed to load.'); return; }
     const options = {
-      key: 'rzp_test_YOUR_KEY_HERE', // Replace with your test/live key
-      amount: amount * 100, // amount in smallest currency unit (paise)
+      key: 'rzp_test_YOUR_KEY_HERE',
+      amount: amount * 100,
       currency: 'INR',
       name: 'Prabu Portfolio',
       description: `Payment for ${planName} Plan`,
-      handler: function (response) {
-        alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}`);
-      },
-      prefill: {
-        name: 'Client Name',
-        email: 'client@example.com',
-      },
-      theme: { color: '#059669' }
+      handler: function (response) { alert(`Payment successful! ID: ${response.razorpay_payment_id}`); },
+      prefill: { name: 'Client Name', email: 'client@example.com' },
+      theme: { color: '#0A0A0B' }
     };
-
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
+    new window.Razorpay(options).open();
   };
 
   return (
-    <section id="pricing" className="py-24 bg-white border-t border-neutral-100">
+    <section id="pricing" className="py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl">Pricing.</h2>
-          <p className="mt-4 text-lg text-neutral-500">Transparent packages for your business.</p>
+        <div className="text-center mb-24 max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-neutral-900">Simple, transparent pricing.</h2>
+          <p className="mt-6 text-xl text-neutral-500 font-medium leading-relaxed">No hidden fees. We believe in delivering exceptional value with complete transparency.</p>
         </div>
         
-        <div className="flex flex-col md:flex-row justify-center gap-8 max-w-5xl mx-auto">
-          <div className="flex-1 bg-white p-10 rounded-3xl shadow-sm border border-neutral-200">
-            <h3 className="text-2xl font-bold mb-2">Landing Page</h3>
-            <p className="text-neutral-500 mb-6">Perfect for new businesses.</p>
-            <div className="mb-8">
-              <span className="text-5xl font-extrabold tracking-tight">₹15,000</span>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 max-w-5xl mx-auto">
+          {/* Base Plan */}
+          <div className="flex-1 w-full bg-[#FAFAFA] p-12 rounded-[2.5rem] border border-black/5 hover:border-black/10 transition-colors duration-500">
+            <h3 className="text-2xl font-bold mb-2 tracking-tight">Landing Page</h3>
+            <p className="text-neutral-500 mb-8 font-medium">Perfect for new businesses.</p>
+            <div className="mb-10 flex items-baseline gap-2">
+              <span className="text-5xl font-black tracking-tighter">₹15,000</span>
             </div>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-center text-neutral-600"><span className="text-emerald-500 mr-2">✓</span> 1 Page Website</li>
-              <li className="flex items-center text-neutral-600"><span className="text-emerald-500 mr-2">✓</span> Responsive Design</li>
-              <li className="flex items-center text-neutral-600"><span className="text-emerald-500 mr-2">✓</span> Basic SEO</li>
+            <ul className="space-y-5 mb-10">
+              {['1 Page Website', 'Responsive Design', 'Basic SEO', 'Fast Delivery'].map((feature, idx) => (
+                <li key={idx} className="flex items-center text-neutral-600 font-medium">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 mr-4 text-sm font-bold">✓</span> 
+                  {feature}
+                </li>
+              ))}
             </ul>
-            <button onClick={() => handlePayment('Landing Page', 15000)} className="w-full py-4 bg-emerald-50 text-emerald-700 font-bold rounded-xl hover:bg-emerald-100 transition">
+            <button onClick={() => handlePayment('Landing Page', 15000)} className="w-full py-4 bg-white border border-black/10 text-neutral-900 font-bold rounded-2xl hover:bg-neutral-50 hover:shadow-sm transition-all duration-300">
               Get Started
             </button>
           </div>
 
-          <div className="flex-1 bg-neutral-900 text-white p-10 rounded-3xl shadow-xl border border-neutral-800 relative transform md:-translate-y-4">
+          {/* Premium Plan */}
+          <div className="flex-1 w-full bg-[#0A0A0B] text-white p-12 rounded-[3rem] border border-white/10 relative shadow-[0_30px_60px_rgba(0,0,0,0.15)] group transform md:-translate-y-6">
+            <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[3rem] pointer-events-none"></div>
             <div className="absolute top-0 right-10 transform -translate-y-1/2">
-              <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Popular</span>
+              <span className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-xs font-bold px-5 py-2 rounded-full uppercase tracking-widest shadow-lg">Popular</span>
             </div>
-            <h3 className="text-2xl font-bold mb-2">Standard</h3>
-            <p className="text-neutral-400 mb-6">For growing companies.</p>
-            <div className="mb-8">
-              <span className="text-5xl font-extrabold tracking-tight">₹35,000</span>
+            <h3 className="text-2xl font-bold mb-2 tracking-tight">Standard Growth</h3>
+            <p className="text-neutral-400 mb-8 font-medium">For scaling companies.</p>
+            <div className="mb-10 flex items-baseline gap-2">
+              <span className="text-5xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-500">₹35,000</span>
             </div>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-center text-neutral-300"><span className="text-blue-500 mr-2">✓</span> Up to 5 Pages</li>
-              <li className="flex items-center text-neutral-300"><span className="text-blue-500 mr-2">✓</span> CMS Integration</li>
-              <li className="flex items-center text-neutral-300"><span className="text-blue-500 mr-2">✓</span> Advanced SEO & Analytics</li>
+            <ul className="space-y-5 mb-10">
+              {['Up to 5 Pages', 'CMS Integration', 'Advanced SEO & Analytics', 'Priority Support'].map((feature, idx) => (
+                <li key={idx} className="flex items-center text-neutral-300 font-medium">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 mr-4 text-sm border border-blue-500/30 font-bold">✓</span> 
+                  {feature}
+                </li>
+              ))}
             </ul>
-            <button onClick={() => handlePayment('Standard', 35000)} className="w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition transform hover:scale-105">
+            <button onClick={() => handlePayment('Standard Growth', 35000)} className="w-full py-4 bg-white text-black font-bold rounded-2xl hover:bg-neutral-200 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]">
               Get Started
             </button>
           </div>

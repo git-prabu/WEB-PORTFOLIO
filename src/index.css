@@ -4,14 +4,35 @@
 
 @theme {
   --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  
+  --color-brand-emerald: #10b981;
+  --color-brand-emerald-dark: #059669;
+  --color-brand-blue: #3b82f6;
+  
+  --shadow-premium: 0 8px 30px rgba(0, 0, 0, 0.04);
+  --shadow-premium-hover: 0 14px 40px rgba(0, 0, 0, 0.08);
+  --shadow-glass: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 32px 0 rgba(0, 0, 0, 0.05);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #fafafa;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #d4d4d8;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #a1a1aa;
+    }
   }
   body {
-    @apply bg-white text-neutral-900 font-sans antialiased selection:bg-emerald-200 selection:text-emerald-900;
+    @apply bg-[#fafafa] text-neutral-900 font-sans antialiased text-balance selection:bg-brand-emerald/20 selection:text-brand-emerald-dark;
   }
 }
 
@@ -19,7 +40,7 @@
   .tracking-tighter {
     letter-spacing: -0.04em;
   }
-  .text-balance {
-    text-wrap: balance;
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-premium;
   }
 }

@@ -1,30 +1,34 @@
 export default function Portfolio() {
+  const projects = [
+    { tag: 'Law Firm Website', border: 'border-black/5', span: 'md:col-span-2', height: 'h-[500px]' },
+    { tag: 'SV Construction', border: 'border-black/5', span: 'md:col-span-1', height: 'h-[500px]' },
+    { tag: 'SaaS Dashboard', border: 'border-black/5', span: 'md:col-span-1', height: 'h-[400px]' },
+    { tag: 'E-Comm Brand', border: 'border-black/5', span: 'md:col-span-2', height: 'h-[400px]' }
+  ];
+
   return (
-    <section id="portfolio" className="py-24 bg-white border-t border-neutral-100">
+    <section id="portfolio" className="py-32 bg-[#FAFAFA] border-t border-black/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-16">
-          <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl">Portfolio.</h2>
-          <p className="mt-4 text-lg text-neutral-500">A selection of our recent work.</p>
+        <div className="mb-20 max-w-2xl">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-neutral-900">Selected Works</h2>
+          <p className="mt-6 text-xl text-neutral-500 font-medium leading-relaxed">A curated collection of projects where design meets precise engineering.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[
-            { tag: 'Law Firm Website', bg: 'bg-neutral-100' },
-            { tag: 'SV Construction', bg: 'bg-neutral-100' },
-            { tag: 'SaaS Dashboard', bg: 'bg-neutral-100' },
-            { tag: 'E-Comm Brand', bg: 'bg-neutral-100' }
-          ].map((item, i) => (
-            <div key={i} className={`group relative h-[400px] rounded-3xl overflow-hidden cursor-pointer ${item.bg} border border-neutral-200 flex items-center justify-center`}>
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition duration-500 z-10" />
-              <span className="text-neutral-400 font-medium">✨ Image Placeholder</span>
-              <div className="absolute top-6 left-6 z-20">
-                <span className="px-4 py-2.5 bg-white/90 backdrop-blur-sm rounded-full text-sm font-semibold text-neutral-900 shadow-sm">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {projects.map((item, i) => (
+            <div key={i} className={`group relative ${item.span} ${item.height} rounded-[2.5rem] overflow-hidden cursor-pointer bg-white border ${item.border} flex items-center justify-center shadow-sm hover:shadow-premium-hover transition-all duration-700`}>
+              <div className="absolute inset-0 bg-neutral-900/0 group-hover:bg-neutral-900/10 transition-colors duration-500 z-10" />
+              <div className="w-full h-full bg-neutral-50 group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-center">
+                <span className="text-neutral-300 font-medium text-lg">✨ Project Snapshot</span>
+              </div>
+              <div className="absolute top-8 left-8 z-20">
+                <span className="px-5 py-2.5 bg-white/90 backdrop-blur-xl rounded-full text-sm font-semibold text-neutral-900 shadow-sm border border-white/20">
                   {item.tag}
                 </span>
               </div>
-              <div className="absolute bottom-6 left-6 z-20 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300 pointer-events-none">
-                <span className="flex items-center space-x-2 text-neutral-900 bg-white px-5 py-2.5 rounded-full font-medium shadow-md">
-                  <span>View project</span>
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              <div className="absolute bottom-8 left-8 z-20 opacity-0 transform translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none">
+                <span className="flex items-center space-x-2 text-neutral-900 bg-white px-6 py-3 rounded-full font-semibold shadow-premium border border-black/5">
+                  <span>View Case Study</span>
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                 </span>
               </div>
             </div>

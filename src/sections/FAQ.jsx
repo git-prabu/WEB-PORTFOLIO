@@ -7,20 +7,22 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-neutral-50/50">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl">FAQ.</h2>
-          <p className="mt-4 text-lg text-neutral-500">Common questions from our clients.</p>
+    <section id="faq" className="py-32 bg-[#FAFAFA] border-t border-black/5">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-20 max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-neutral-900">Frequently Asked.</h2>
+          <p className="mt-6 text-xl text-neutral-500 font-medium leading-relaxed">Everything you need to know about the process.</p>
         </div>
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <details key={i} className="group bg-white p-6 rounded-2xl border border-neutral-200 cursor-pointer open:ring-2 open:ring-neutral-900/5 transition duration-300">
-              <summary className="font-semibold text-lg flex justify-between items-center text-neutral-900 outline-none">
+            <details key={i} className="group bg-white p-8 rounded-[2rem] border border-black/5 cursor-pointer open:ring-1 open:ring-black/5 hover:shadow-premium transition-all duration-300">
+              <summary className="font-bold text-xl flex justify-between items-center text-neutral-900 outline-none list-none [&::-webkit-details-marker]:hidden tracking-tight">
                 {faq.q}
-                <span className="text-neutral-400 group-open:rotate-45 transition-transform text-2xl duration-300">+</span>
+                <span className="text-neutral-400 w-10 h-10 flex items-center justify-center rounded-full bg-neutral-50 group-open:-rotate-45 transition-transform duration-300 ease-in-out border border-black/5">+</span>
               </summary>
-              <p className="mt-4 text-neutral-500 leading-relaxed pr-8">{faq.a}</p>
+              <div className="mt-6 text-neutral-500 leading-relaxed text-lg pr-8 origin-top opacity-80">
+                {faq.a}
+              </div>
             </details>
           ))}
         </div>
