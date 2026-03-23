@@ -1,6 +1,6 @@
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 
-export default function SpotlightCard({ children, className = "", spotlightColor = "rgba(16, 185, 129, 0.15)" }) {
+export default function SpotlightCard({ children, className = "", spotlightColor = "rgba(6, 182, 212, 0.15)" }) {
   let mouseX = useMotionValue(0);
   let mouseY = useMotionValue(0);
 
@@ -12,7 +12,7 @@ export default function SpotlightCard({ children, className = "", spotlightColor
 
   return (
     <div
-      className={`relative group overflow-hidden bg-[#FAFAFA] border border-black/5 ${className}`}
+      className={`relative group overflow-hidden bg-[#0A0A0A] border border-white/5 ${className}`}
       onMouseMove={handleMouseMove}
     >
       <motion.div

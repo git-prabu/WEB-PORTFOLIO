@@ -13,7 +13,7 @@ import BlurText from '../components/reactbits/BlurText';
 
 export default function Home() {
   return (
-    <div className="pt-0 bg-[#FAFAFA]">
+    <div className="pt-0 bg-[#030303]">
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden">
         
@@ -28,24 +28,24 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="flex justify-center"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/5 bg-white/50 backdrop-blur-md shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_15px_rgba(6,182,212,0.1)]">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-emerald opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-emerald-dark"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-accent"></span>
               </span>
-              <span className="text-xs font-semibold uppercase tracking-wider text-neutral-600">Available for new projects</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-neutral-300">Available for new projects</span>
             </div>
           </motion.div>
 
           <SplitText 
             text="Digital experiences that defy expectations." 
-            className="text-6xl md:text-8xl font-bold tracking-tighter text-balance leading-[1.05] text-neutral-900 pb-4" 
+            className="text-6xl md:text-8xl font-bold tracking-tighter text-balance leading-[1.05] text-white pb-4 drop-shadow-2xl" 
             delay={0.1}
           />
 
           <BlurText 
             text="I craft incredibly fast, flawlessly designed digital products that help ambitious brands accelerate their growth. Emphasizing typography, motion, and conversion." 
-            className="text-lg md:text-xl text-neutral-500 max-w-2xl mx-auto text-balance font-medium leading-relaxed justify-center" 
+            className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto text-balance font-medium leading-relaxed justify-center" 
             delay={0.2}
           />
           
@@ -55,10 +55,10 @@ export default function Home() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6"
           >
-            <a href="#portfolio" className="px-8 py-4 text-sm font-semibold text-white bg-neutral-900 rounded-full hover:bg-neutral-800 transition-all duration-300 transform hover:-translate-y-1 shadow-premium hover:shadow-premium-hover w-full sm:w-auto">
+            <a href="#portfolio" className="px-8 py-4 text-sm font-bold text-black bg-brand-accent rounded-full hover:bg-white transition-all duration-300 transform hover:-translate-y-1 shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.6)] w-full sm:w-auto">
               View Selected Work
             </a>
-            <a href="#pricing" className="px-8 py-4 text-sm font-semibold text-neutral-900 bg-white/80 backdrop-blur-md border border-black/5 rounded-full hover:bg-white hover:border-black/10 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto shadow-sm">
+            <a href="#pricing" className="px-8 py-4 text-sm font-semibold text-white bg-white/5 backdrop-blur-md border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
               Discover Pricing
             </a>
           </motion.div>
@@ -67,7 +67,7 @@ export default function Home() {
 
       <Marquee />
 
-      <div className="relative z-20 bg-white shadow-[0_-20px_50px_rgba(0,0,0,0.02)]">
+      <div className="relative z-20 bg-[#030303]">
         <Services />
         <Results />
         <Portfolio />

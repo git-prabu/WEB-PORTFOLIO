@@ -3,36 +3,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
 @theme {
-  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
   
-  --color-brand-emerald: #10b981;
-  --color-brand-emerald-dark: #059669;
-  --color-brand-blue: #3b82f6;
+  --color-brand-accent: #06b6d4;
+  --color-brand-accent-hover: #0891b2;
+  --color-brand-purple: #6366f1;
   
-  --shadow-premium: 0 8px 30px rgba(0, 0, 0, 0.04);
-  --shadow-premium-hover: 0 14px 40px rgba(0, 0, 0, 0.08);
-  --shadow-glass: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  --shadow-premium: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --shadow-premium-hover: 0 14px 40px rgba(6, 182, 212, 0.15);
+  --shadow-glass: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    background-color: #030303;
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: #fafafa;
+      background: #050505;
     }
     ::-webkit-scrollbar-thumb {
-      background: #d4d4d8;
+      background: #333333;
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #a1a1aa;
+      background: #555555;
     }
   }
   body {
-    @apply bg-[#fafafa] text-neutral-900 font-sans antialiased text-balance selection:bg-brand-emerald/20 selection:text-brand-emerald-dark;
+    @apply bg-[#030303] text-neutral-300 font-sans antialiased text-balance selection:bg-brand-accent/20 selection:text-brand-accent;
   }
 }
 
@@ -41,6 +42,6 @@
     letter-spacing: -0.04em;
   }
   .glass {
-    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-premium;
+    @apply bg-[#0A0A0A]/60 backdrop-blur-xl border border-white/5 shadow-premium;
   }
 }
