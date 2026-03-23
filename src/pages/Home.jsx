@@ -7,6 +7,9 @@ import Testimonials from '../sections/Testimonials';
 import FAQ from '../sections/FAQ';
 import About from '../sections/About';
 import Pricing from '../sections/Pricing';
+import GridBackground from '../components/reactbits/GridBackground';
+import SplitText from '../components/reactbits/SplitText';
+import BlurText from '../components/reactbits/BlurText';
 
 export default function Home() {
   return (
@@ -14,13 +17,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden">
         
-        {/* Soft Radial Gradient Backing */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-emerald/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
-
-        {/* Sophisticated Grid Overlay */}
-        <div className="absolute inset-0 max-w-7xl mx-auto -z-20 [mask-image:linear-gradient(to_bottom,white,transparent)] opacity-40">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-        </div>
+        <GridBackground />
 
         <div className="text-center space-y-8 px-4 max-w-5xl mx-auto relative z-10 pt-20">
           
@@ -40,27 +37,17 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="text-6xl md:text-8xl font-bold tracking-tighter text-balance leading-[1.05] text-neutral-900"
-          >
-            Digital experiences that <br className="hidden md:block"/>
-            <span className="relative text-black inline-block px-2">
-              defy expectations.
-              <svg className="absolute w-full h-4 -bottom-1 left-0 text-brand-emerald/40 -z-10" viewBox="0 0 200 9" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00035 6.81363C47.8863 3.01633 118.06 -1.13459 198.026 3.8647" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </span>
-          </motion.h1>
+          <SplitText 
+            text="Digital experiences that defy expectations." 
+            className="text-6xl md:text-8xl font-bold tracking-tighter text-balance leading-[1.05] text-neutral-900 pb-4" 
+            delay={0.1}
+          />
 
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="text-lg md:text-xl text-neutral-500 max-w-2xl mx-auto text-balance font-medium leading-relaxed"
-          >
-            I craft incredibly fast, flawlessly designed digital products that help ambitious brands accelerate their growth. Emphasizing typography, motion, and conversion.
-          </motion.p>
+          <BlurText 
+            text="I craft incredibly fast, flawlessly designed digital products that help ambitious brands accelerate their growth. Emphasizing typography, motion, and conversion." 
+            className="text-lg md:text-xl text-neutral-500 max-w-2xl mx-auto text-balance font-medium leading-relaxed justify-center" 
+            delay={0.2}
+          />
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}

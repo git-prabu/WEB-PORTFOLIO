@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import SplitText from '../components/reactbits/SplitText';
 
 export default function About() {
   return (
@@ -9,7 +10,7 @@ export default function About() {
             initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="flex-1 space-y-8"
           >
-            <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-neutral-900">About Us.</h2>
+            <SplitText text="About Us." className="text-4xl font-bold tracking-tighter sm:text-5xl text-neutral-900" />
             <p className="text-xl text-neutral-500 leading-relaxed text-balance font-medium">
               We are a specialized development studio focused on creating web experiences that feel native, responsive, and incredibly fast. 
               Led by Prabu, our team bridges the gap between premium design and scalable engineering architecture.
