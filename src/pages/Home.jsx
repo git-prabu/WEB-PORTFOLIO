@@ -21,6 +21,23 @@ export default function Home() {
 
         <div className="text-center space-y-8 px-4 max-w-5xl mx-auto relative z-10 pt-20">
           
+          {/* Floating Elite Badge */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+            animate={{ opacity: 1, scale: 1, rotate: 6 }}
+            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+            className="hidden md:flex absolute top-10 right-4 items-center justify-center p-4 bg-[#0A0A0A]/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] z-20 hover:rotate-0 hover:scale-105 hover:border-brand-accent/30 transition-all duration-300 cursor-pointer"
+          >
+            <div className="flex -space-x-3 mr-4">
+              <div className="w-10 h-10 rounded-full border-2 border-[#0A0A0A] bg-gradient-to-br from-brand-accent to-brand-purple flex items-center justify-center text-xs font-bold text-black shadow-lg shadow-brand-accent/20">100%</div>
+              <div className="w-10 h-10 rounded-full border-2 border-[#0A0A0A] bg-[#111] flex items-center justify-center text-lg shadow-lg">🚀</div>
+            </div>
+            <div className="text-left">
+              <p className="text-sm font-bold text-white leading-tight">Elite Performer</p>
+              <p className="text-xs font-semibold text-neutral-400">Top 1% UI/UX Designer</p>
+            </div>
+          </motion.div>
+          
           {/* Availability Badge */}
           <motion.div 
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -61,6 +78,22 @@ export default function Home() {
             <a href="#pricing" className="px-8 py-4 text-sm font-semibold text-white bg-white/5 backdrop-blur-md border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
               Discover Pricing
             </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+            className="pt-16 max-w-3xl mx-auto flex flex-col items-center justify-center border-t border-white/5 mt-16"
+          >
+            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-600 mb-6">Trusted By Forward-Thinking Teams</p>
+            <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 hover:opacity-100">
+              {['Acme Corp', 'GlobalBank', 'NexTech', 'Vertex', 'Lumina'].map((partner, i) => (
+                <div key={i} className="text-xl font-black tracking-tighter text-white drop-shadow-md">
+                  {partner}
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
